@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *, *:before, *:after{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            }
+
+
+            input, button{
+            border:none;
+            outline: none;
+            background: none;
+            }
+            .box1 {
+                font-size: 12px;
+                line-height: 14px;
+                border: 1px solid #ececec;
+                color: black;
+                padding: 8px 10px;
+                border-radius: 6px;
+                display: inline-block;
+                margin-top: 5px;
+                font-weight: 400;
+                background-color: crimson;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .cont {
+                overflow: no-display;
+                position: relative;
+                width: 700px;
+                height: 100%;
+                background: none;
+                box-shadow: none;
+            }
+
+            .header {
+                width: 100%;
+                z-index: 9999;
+            }
+            h2{
+            width: 100%;
+            font-size: 30px;
+            text-align: center;
+            color:firebrick;
+            }
+
+            label,#enroll{
+            display: block;
+            width: 260px;
+            margin: 25px auto 0;
+            text-align: center;
+            }
+
+            label span,#enroll{
+            font-size: 14px;
+            font-weight: 600;
+            color: black;
+            text-transform: uppercase;
+            }
+
+            input{
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 16px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+            text-align: center;
+            font-family: 'Nunito', sans-serif; 
+            }
+
+            button{
+            display: block;
+            margin: 0 auto;
+            width: 260px;
+            height: 36px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            }
+
+            .submit{
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: 'Nunito', sans-serif;
+            background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+            }
+
+            .submit:hover{
+            background: -webkit-linear-gradient(left, #b224ef, #7579ff);
+            }
+
+            .forgot-pass{
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0c0101;
+            cursor: pointer;
+            }
+
+            .forgot-pass:hover{
+            color: red;
+            }
+
+            .social-media{
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            }
+
+            .social-media ul{
+            list-style: none;
+            }
+
+            .social-media ul li{
+            display: inline-block;
+            cursor: pointer;
+            }
+
+            .social-media img{
+            width: 40px;
+            height: 40px;
+            }
+
+            .sub-cont{
+            overflow: hidden;
+            position: absolute;
+            left: 640px;
+            top: 0;
+            width: 900px;
+            height: 100%;
+            padding-left: 260px;
+            background: #fff;
+            -webkit-transition: -webkit-transform 1.2s ease-in-out;
+            transition: -webkit-transform 1.2s ease-in-out;
+            transition: transform 1.2s ease-in-out;
+            }
+
+            .cont.s-signup .sub-cont{
+            -webkit-transform:translate3d(-640px, 0, 0);
+                    transform:translate3d(-640px, 0, 0);
+            }
+            .form1{
+                background-color:none;
+                position: relative;
+                width: 700px;
+                height: 100%;
+                padding: 50px 50px;
+                -webkit-transition: -webkit-transform 1.2s ease-in-out;
+                transition: -webkit-transform 1.2s ease-in-out;
+                transition: transform 1.2s ease-in-out;
+                transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+            }
+            .img{
+            overflow: hidden;
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100%;
+            padding-top: 360px;
+            }
+
+            .img:before{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 900px;
+            height: 100%;
+            background-image: url(images/bg1.jpg);
+            background-size: cover;
+            transition: -webkit-transform 1.2s ease-in-out;
+            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+            }
+
+            .img:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            }
+
+            .cont.s-signup .img:before{
+            -webkit-transform:translate3d(640px, 0, 0);
+                    transform:translate3d(640px, 0, 0);
+            }
+
+            .img-text{
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 100%;
+            padding: 0 20px;
+            text-align: center;
+            color: #fff;
+            -webkit-transition:-webkit-transform 1.2s ease-in-out;
+            transition: -webkit-transform 1.2s ease-in-out;
+            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+            }
+
+            .img-text h2{
+            margin-bottom: 10px;
+            font-weight: normal;
+            }
+
+            .img-text p{
+            font-size: 14px;
+            line-height: 1.5;
+            }
+
+            .cont.s-signup .img-text.m-up{
+            -webkit-transform:translateX(520px);
+                    transform:translateX(520px);
+            }
+
+            .img-text.m-in{
+            -webkit-transform:translateX(-520px);
+                    transform:translateX(-520px);
+            }
+
+            .cont.s-signup .img-text.m-in{
+            -webkit-transform:translateX(0);
+                    transform:translateX(0);
+            }
+
+
+            .sign-in{
+            padding-top: 65px;
+            -webkit-transition-timing-function:ease-out;
+                    transition-timing-function:ease-out;
+            }
+
+            .cont.s-signup .sign-in{
+            -webkit-transition-timing-function:ease-in-out;
+                    transition-timing-function:ease-in-out;
+            -webkit-transition-duration:1.2s;
+                    transition-duration:1.2s; 
+            -webkit-transform:translate3d(640px, 0, 0);
+                    transform:translate3d(640px, 0, 0);
+            }
+
+            .img-btn{
+            overflow: hidden;
+            z-index: 2;
+            position: relative;
+            width: 100px;
+            height: 36px;
+            margin: 0 auto;
+            background: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 15px;
+            cursor: pointer;
+            
+            }
+
+            .img-btn:after{
+            content: '';
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            }
+
+            .img-btn span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack:center;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            -webkit-transition:-webkit-transform 1.2s;
+            transition: -webkit-transform 1.2s;
+            transition: transform 1.2s;
+            transition: transform 1.2s, -webkit-transform 1.2s;;
+            }
+
+            .img-btn span.m-in{
+            -webkit-transform:translateY(-72px);
+                    transform:translateY(-72px);
+            }
+
+            .cont.s-signup .img-btn span.m-in{
+            -webkit-transform:translateY(0);
+                    transform:translateY(0);
+            }
+
+            .cont.s-signup .img-btn span.m-up{
+            -webkit-transform:translateY(72px);
+                    transform:translateY(72px);
+            }
+
+            .sign-up{
+            -webkit-transform:translate3d(-900px, 0, 0);
+                    transform:translate3d(-900px, 0, 0);
+            }
+
+            .cont.s-signup .sign-up{
+            -webkit-transform:translate3d(0, 0, 0);
+                    transform:translate3d(0, 0, 0);
+            }
+        </style>
+        <link href="css/style.css" rel="stylesheet">
+        <title>Enroll</title>
+    </head>
+    <body style="background-image:url('images/travel.jpg');background-size: 100%;  width: 100%;height: 100vh;display: flex;justify-content: center;align-items: center;font-family: 'Nunito', sans-serif;color:black;">
+        <div id="header">
+            <link href="css/style.css" rel="stylesheet">
+            <div class="for-sticky">
+                <!--LOGO-->
+                <div class="col-md-2 col-xs-6 logo">
+                    <a href="index.html"><img alt="logo" class="logo-nav" src="images/logo.png"></a>
+                </div>
+                <!--/.LOGO END-->
+            </div>
+        </div>
+        <div style="overflow:visible;position: middle;width: 700px;height: 100%;background: none;box-shadow: none;">
+            <div class="form1 sign-in">
+                <h2>ENROLL</h2>
+                <hr style="stroke-width:2px" />
+                <label>
+                    <span>Username</span>
+                    <input type="text">
+                </label>
+                <label>
+                    <span>First Name</span>
+                    <input type="text">
+                </label>
+                <label>
+                    <span>Last Name</span>
+                    <input type="text">
+                </label>
+                <label>
+                    <span>Age</span>
+                    <input type="number">
+                </label>
+                <label>
+                    <span>Email Address</span>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password">
+                </label>
+                <label>
+                    <span>Confirm Password</span>
+                    <input type="password">
+                </label>
+                <br />
+                <hr style="stroke-width:2px" />
+                <br />
+                <button class="box1" type="button" onclick="signup()">Sign Up</button>
+            </div>
+        </div>
+        <div id="preloader">
+            <div id="status">
+                <img src="images/logo-gin.png">
+            </div>
+        </div>
+        <script>
+            function signup(){
+                window.location = 'success.html'
+            }
+        </script>
+        <script type="text/javascript" src="js/script.js"></script>    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.appear.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/classie.js" type="text/javascript"></script>
+        <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+        <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+        <script src="js/masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="js/masonry.js" type="text/javascript"></script>
+        <script src="js/smooth-scroll.min.js" type="text/javascript"></script>
+        <script src="js/typed.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+</html>
